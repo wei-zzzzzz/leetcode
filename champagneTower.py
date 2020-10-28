@@ -13,6 +13,7 @@ r 為排數，若以杯子量考量則為O(n)
 2.接著開始倒入酒：
     若現在杯子其值大於1，代表該杯滿了多的poured 須流向下一排之左右兩杯(平分給予)，並期內容改為1
     修正：到了最後一派時要去確認內容是否大於1
+3.小小幅度加快的修正，不跑最後一排（少判斷是否為最後一排），回傳時只修正題目要的杯子其內容
 
 '''
 class Solution:
@@ -32,9 +33,24 @@ class Solution:
                     Glass[i+1][j+1] += (Glass[i][j] -1)/2
                     Glass[i][j] = 1        
         return Glass[query_row][query_glass]        
-        
         '''
-        #error
+        ##修正for迴圈可加快速度
+        for i in range(query_row):
+            for j in range(len(Glass[i])):
+                #if i == query_row:
+                 #   Glass[i][j] = min(1,Glass[i][j])
+                
+                if Glass[i][j] > 1:
+                    Glass[i+1][j] += (Glass[i][j] -1)/2
+                    Glass[i+1][j+1] += (Glass[i][j] -1)/2
+                    Glass[i][j] = 1        
+        if Glass[query_row][query_glass] > 1:
+            return 1
+        else:
+            return Glass[query_row][query_glass]
+       '''
+'''
+        #first error
         if query_row == 0 :
             if poured > 1:
                 return 1
@@ -48,4 +64,4 @@ class Solution:
             return poured/ave
         else:
             return (poured*2)/ave
-        '''
+'''
