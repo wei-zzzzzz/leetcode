@@ -1,4 +1,5 @@
 '''
+10_30 Maximize Distance to Closest Person
 Time: O(n)（左右來回掃一遍）
 Space: O(1) （沒有多用額外 space）
 解題思考：
