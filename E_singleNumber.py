@@ -20,6 +20,9 @@ class Solution:
         return ans
 
         '''
+#不好點為要多增加預設狀況（長度為1時）
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
         if len(nums) == 1:
             return nums[0]
         for i in range(len(nums)-1):
