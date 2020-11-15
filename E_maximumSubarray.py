@@ -3,6 +3,10 @@ Maximum Subarray
 2020_11_5
 Time: O(n)
 Space: O(n)
+思考流程：
+1.建立一個全為0之list（for dp）
+2.紀錄當下最好之解可能是當下之值，抑或是前面加上目前的值（要連續）
+3.並比較斷斷續續中的最大值，其哪段最大
 '''
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
