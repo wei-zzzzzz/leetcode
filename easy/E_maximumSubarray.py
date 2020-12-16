@@ -16,7 +16,7 @@ class Solution:
         subM[0] = nums[0]
         Max = nums[0]
         for i in range(1,len(nums)):
-            subM[i] = max(nums[i], (subM[i-1]+nums[i]))
+            subM[i] = max(nums[], (subM[i-1]+nums[i]))
             if subM[i] > Max:
                 Max = subM[i]
         print(subM)
